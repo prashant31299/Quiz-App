@@ -4,16 +4,16 @@ import { Gamecontext } from '../helper/context';
 
 function Menu(){
 
-    const {gamestate,setgamestate}=useContext(Gamecontext)
-
+    const {gamestate,setgamestate,username,setusername}=useContext(Gamecontext)
+console.log(username)
     return (
-        <div className="Menu">
+        <div className="Quiz">
             <label> Enter Your Name</label>
-            <input type='text' />
-            <button onClick={()=>{
-                setgamestate('playing ')
-            }}>Quiz Start</button>
-
+            <input type='text' onChange={(event)=>{
+                setusername(event.target.value)
+            }}/>
+            <button onClick={()=>setgamestate('play')}>
+            Quiz Start</button>
         </div>
     )
 }

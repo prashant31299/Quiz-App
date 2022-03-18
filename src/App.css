@@ -10,24 +10,48 @@
 
 }
 
-.Menu{
+.Quiz{
   width: 500px ;
   height: 500px;
-  background-color: rgba(11, 152, 170, 0.534) ;
+  background-color: lightseagreen ;
   display: flex;
+  /* flex-wrap/: wrap; */
   flex-direction: column;
 
   justify-content: center;
   align-items: center;
 
+  color: white;
+  font-size: 1rem;
   border-radius: 5PX;
 
 }
-.Menu input,button{
+label,h4{
+  font-size: 1.2rem;
+}
+.Quiz input{
   width: 300px;
-  height: 35px;
+  height: 45px;
   margin: 10px;
   border-radius: 4px;
   font-size: 1.3rem;
-  border: 1px solid;
+  border: 1px ;
+  box-shadow: 3px 2px 3px 2px rgb(128, 125, 125);
+
+}
+button{
+  width: 200px;
+  height: 50px;
+  margin: 10px;
+  border: 1px;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-family: monospace;
+  box-shadow: 3px 2px 3px 2px rgb(65, 63, 63);
+}
+.questions{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  
 }
