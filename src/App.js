@@ -1,23 +1,18 @@
-import logo from './logo.svg';
+import { useState } from 'react';
+import { Gamecontext } from './helper/context';
 import './App.css';
 
+import Menu from './component/Menu';
+
 function App() {
+const [gamestate,setgamestate]=useState('menu')
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+  <h1>Quiz Appp</h1>
+  <Gamecontext.Provider value={{gamestate,setgamestate}}>
+{ gamestate =='menu'&&  <Menu/>}
+</Gamecontext.Provider>
     </div>
   );
 }
