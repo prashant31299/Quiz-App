@@ -1,25 +1,40 @@
 import { useState } from 'react'
 import '../App.css'
-
 import { Questions } from '../helper/Questions'
+import { useContext } from 'react';
+import { Gamecontext } from '../helper/context';
+
 
 function Quiz(){
+    
     const [currentQuestion,setcurrentQuestion] = useState(0)
     const [optionsChosen,setoptionsChosen] = useState("")
-    const [count,setcount]=useState(0)
+    
+    const {score,setscore,gamestate,setgamestate}=useContext(Gamecontext)
+
     const chosenoption=(options)=>{
         setoptionsChosen(options)
 
-    }
+    };
         const Nextquetion=()=>{
-            setcurrentQuestion(prev=>prev+1)
             
-                if (Questions[currentQuestion].answer ===optionsChosen){
-                    setcount(prev=>prev+1)
-                }else{
-                    setcount()                };
+            if (Questions[currentQuestion].answer ===optionsChosen){
+                setscore(score + 1)
+            }          
+        
+        
+        setcurrentQuestion(prev=>prev+1)
+        console.log(score)
         }
-            console.log(count)
+
+        
+        function finishquiz(){
+            if (Questions[currentQuestion].answer ===optionsChosen){
+                setscore(score + 1)
+            }          
+        
+            setgamestate('finish')
+        }
     
     return (
         <div className='Quiz'>
@@ -42,11 +57,14 @@ function Quiz(){
 
                 <button onClick={()=>{
                     chosenoption("OptionD")
-                 }}>{Questions[currentQuestion].OptionD}</button>
-                 <button onClick={Nextquetion} >Next </button>
+                }}>{Questions[currentQuestion].OptionD}</button>
+                    
+                    {currentQuestion==Questions.length-1 ?
+                  <button onClick={finishquiz} >finish </button>
+                 :   <button onClick={Nextquetion} >Next </button>
+                    }
             </div>
 
-            {optionsChosen}
         </div>
     )
 }

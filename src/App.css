@@ -55,3 +55,18 @@ button{
   flex-wrap: wrap;
   
 }
+.finish{
+  width: 500px ;
+  height: 500px;
+  background-color: lightseagreen ;
+  display: flex;
+  /* flex-wrap/: wrap; */
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  color: white;
+  font-size: 1rem;
+  border-radius: 5PX; 
+}
